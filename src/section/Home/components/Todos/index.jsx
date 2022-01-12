@@ -23,6 +23,14 @@ export function Todos(props) {
     todos.length > 0 ? (
       todos
         .filter((todo) => todo.status === status)
+        .sort((prev, next) => {
+          const a = new Date(prev.createdAt)
+          const b = new Date(next.createdAt)
+          if (status === 0) return b - a
+          if (status === 1) return a - b
+
+          return 0
+        })
         .map((todo) => <Todo todo={todo} key={todo.id} />)
     ) : (
       <div className="d-flex justify-content-center my-4">

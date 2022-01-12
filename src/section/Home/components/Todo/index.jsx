@@ -52,7 +52,7 @@ export function Todo({ todo }) {
         Edit
       </Button>
 
-      {status === 1 ? (
+      {status === 0 ? (
         <Button type="button" variant="danger" onClick={() => handleDeleteTodo(id)}>
           Delete
         </Button>
@@ -70,7 +70,7 @@ export function Todo({ todo }) {
       </Card.Header>
       <Card.Body>
         <Card.Text>{description}</Card.Text>
-        <Card.Text className="text-end">{formatDate(createdAt)}</Card.Text>
+        <Card.Text className="text-end">{formatDate(createdAt)} ago</Card.Text>
       </Card.Body>
     </Card>
   )
